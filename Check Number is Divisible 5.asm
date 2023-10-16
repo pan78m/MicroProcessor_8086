@@ -25,20 +25,33 @@ main proc
  int 21h
  sub al, '0' ; Convert ASCII digit to binary
  mov num, al ; Store the user's input in 'num'
+ 
+ 
+ 
 
  ; Check if the number is divisible by 5
  and al, 3Fh ; Clear the high 2 bits (in case of ASCII input)
  cmp al, 5
  je divisible
  jne not_divisible
+ 
 
- divisible:
+
+ divisible: 
+    mov ah,9
+   lea dx,nl
+   int 21h 
+   
    mov ah, 9
    lea dx, msg_divisible
    int 21h
    jmp done
 
  not_divisible:
+  mov ah,9
+  lea dx,nl
+  int 21h
+  
    mov ah, 9
    lea dx, msg_not_divisible
    int 21h

@@ -2,14 +2,19 @@
 org 100h
 .model small
 .stack 100h
-.data
-msg_1 db "Output Double Digit:$"
+.data 
+msg db "Enter Your Three Digit Number:$"
+msg_1 db "Output Triple Digit:$"
 nl db 0dh,0ah,"$"
 .code
 ;Double digit input
 main proc
 mov ax,@data
-mov ds,ax
+mov ds,ax 
+
+mov ah,9
+lea dx,msg
+int 21h  
 
 ;1st digit
 mov ah,1
