@@ -19,13 +19,14 @@ main proc
 
     mov ah, 01
     int 21h
-    mov input, al
+    mov input,al
+    
 
     cmp al, 'N'
     je exit
 
-    and al, 1   ; Check the least significant bit to determine odd or even
-
+    and al, 1   ; Check the least significant
+               ; bit to determine odd or even
     cmp al, 0
     je even
     jmp odd
